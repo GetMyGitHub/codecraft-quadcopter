@@ -25,6 +25,9 @@
 - Click on the PlatformIO button go to home and load the project
 - Connect the ESP321 and be sure that the device is found in the Device menu.
 
+## In futur
+- Add JTAG  module for testing.
+
 
 
 
