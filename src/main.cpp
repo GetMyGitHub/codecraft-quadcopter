@@ -1,18 +1,45 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+#include <configs/Configs.hpp>
+#include <communication/Wifi_client.hpp>
+#include <communication/Serial_bluetooth.hpp>
+
+// Configs configs;
+// Wifi_client* wifiClient;
+
+// Serial_bluetooth SerialBluetooth;
+
+// Serial_bluetooth serialBluetooth;
+
+Serial_bluetooth* serialBluetooth;
+uint16_t GLOBAL_MIN_DELAY_MS = 10;
+
+
+void initialize(){
+  Serial.println("Quadcopter main program : initialize");
+  // Wifi_client wifiClient;
+  // if(wifiClient.connect()) {
+    
+  // };   
+  serialBluetooth = new Serial_bluetooth();
+
+}
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  delay(2000); // For start
+  Serial.begin(115200);
+  Serial.println("Quadcopter main program : setup");
+  initialize();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  serialBluetooth->updateSerial();
+  delay(GLOBAL_MIN_DELAY_MS);
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
+
+
+// HELPS : 
+// Serial.println(CODECRAFT_WIFI_SSID.c_str());
+
