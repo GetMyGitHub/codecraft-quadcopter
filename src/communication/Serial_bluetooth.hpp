@@ -1,3 +1,6 @@
+#ifndef SERIAL_BLUETOOTH_HPP
+#define SERIAL_BLUETOOTH_HPP
+
 #include <Arduino.h>
 #include <string>
 
@@ -14,3 +17,5 @@ public:
     virtual int serialAvailable();
     virtual void updateSerial();
 };
+
+#endif

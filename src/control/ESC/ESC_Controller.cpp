@@ -4,7 +4,6 @@
 #include <control/ESC/ESC_Controller.hpp>
 #include <configs/Configs.hpp>
 
-
 ESC_Controller::ESC_Controller(){
     Serial.println("ESC_Controller : constructor");
     ESC_Controller::attachMotors();
@@ -26,4 +25,31 @@ void ESC_Controller::initiateMotors(){
     esc_front_right.write(0);
     esc_back_left.write(0);
     esc_back_right.write(0);
+}
+
+void ESC_Controller::setFrontLeftPulse(int pulseValue){
+    esc_front_left_actual_pulse = pulseValue;
+    esc_front_left.write(pulseValue);
+}
+
+void ESC_Controller::setFrontRightPulse(int pulseValue){
+    esc_front_right_actual_pulse = pulseValue;
+    esc_front_right.write(pulseValue);
+}
+
+void ESC_Controller::setBackLeftPulse(int pulseValue){
+    esc_back_left_actual_pulse = pulseValue;
+    esc_back_left.write(pulseValue);
+}
+
+void ESC_Controller::setBackRightPulse(int pulseValue){
+    esc_back_right_actual_pulse = pulseValue;
+    esc_back_right.write(pulseValue);
+}
+
+void ESC_Controller::setPulseAll(int pulseValue){
+    ESC_Controller::setFrontLeftPulse(pulseValue);
+    ESC_Controller::setFrontRightPulse(pulseValue);
+    ESC_Controller::setBackLeftPulse(pulseValue);
+    ESC_Controller::setBackRightPulse(pulseValue);
 }

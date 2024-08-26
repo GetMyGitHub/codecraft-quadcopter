@@ -1,6 +1,5 @@
-
-#ifndef Configs_H
-#define Configs_H
+#ifndef CONFIGS_HPP
+#define CONFIGS_HPP
 
 #include <string>
 
@@ -13,5 +12,11 @@ extern const int CODECRAFT_ESC_PIN_FRONT_LEFT;
 extern const int CODECRAFT_ESC_PIN_FRONT_RIGHT;
 extern const int CODECRAFT_ESC_PIN_BACK_LEFT;
 extern const int CODECRAFT_ESC_PIN_BACK_RIGHT;
+
+extern const std::string CODECRAFT_COMMAND_DELIMITER;
+
+extern const boolean CODECRAFT_LOG_DEBUG;
+
+extern const int CODECRAFT_SERIAL_BAUDRATE;
 
 #endif

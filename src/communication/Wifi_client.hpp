@@ -1,7 +1,8 @@
+#ifndef WIFI_CLIENT_HPP
+#define WIFI_CLIENT_HPP
+
 #include <Arduino.h>
 
-#ifndef Wifi_client_H
-#define Wifi_client_H
 
 class Wifi_client
 {
