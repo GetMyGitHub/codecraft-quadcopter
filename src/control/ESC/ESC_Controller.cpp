@@ -3,8 +3,16 @@
 
 #include <control/ESC/ESC_Controller.hpp>
 #include <configs/Configs.hpp>
+#include <control/FlyController.hpp>
 
 ESC_Controller::ESC_Controller(){
+    Serial.println("ESC_Controller : constructor");
+    ESC_Controller::attachMotors();
+    delay(1000); // Wait attaching motors.
+    ESC_Controller::initiateMotors();
+}
+
+ESC_Controller::ESC_Controller(FlyController* flyController){
     Serial.println("ESC_Controller : constructor");
     ESC_Controller::attachMotors();
     delay(1000); // Wait attaching motors.

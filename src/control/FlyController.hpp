@@ -14,7 +14,7 @@ protected:
     void initialize();
 public:
     FlyController();
-    virtual ~FlyController(){};
+    virtual ~FlyController();
     void setup();
     void loop();
     void serialPrint(string value, boolean debug = false);

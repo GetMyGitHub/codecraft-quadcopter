@@ -3,6 +3,8 @@
 
 #include <ESP32Servo.h>
 
+class FlyController; // Déclaration anticipée de FlyController
+
 class ESC_Controller
 {
     int minPulse;
@@ -18,11 +20,14 @@ class ESC_Controller
     Servo esc_back_left;
     Servo esc_back_right;
 
+    FlyController* flyController; // Pointeur vers FlyController
+
 protected:
     void attachMotors();
     void initiateMotors();
 public:
     ESC_Controller();
+    ESC_Controller(FlyController* flyController);
     virtual ~ESC_Controller() {};
     int getFrontLeftPulse(int pulseValue);
     int getFrontRightPulse(int pulseValue);

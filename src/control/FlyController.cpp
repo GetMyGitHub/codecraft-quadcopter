@@ -5,10 +5,15 @@
 
 using namespace std;
 
-FlyController::FlyController()
+FlyController::FlyController() : escController(new ESC_Controller(this))
 {
     if (CODECRAFT_LOG_DEBUG)
         Serial.println("FlyController : constructor");
+}
+
+FlyController::~FlyController()
+{
+    delete escController;
 }
 
 void FlyController::setup()
@@ -22,7 +27,7 @@ void FlyController::setup()
 void FlyController::initialize()
 {
     FlyController::serialPrintln("Quadcopter main program : initialize");
-    // escController = new ESC_Controller();
+    escController = new ESC_Controller(this);
 }
 
 void FlyController::loop(){
