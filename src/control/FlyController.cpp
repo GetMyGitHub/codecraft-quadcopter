@@ -7,8 +7,7 @@ using namespace std;
 
 FlyController::FlyController() : escController(new ESC_Controller(this))
 {
-    if (CODECRAFT_LOG_DEBUG)
-        Serial.println("FlyController : constructor");
+    FlyController::serialPrintln("FlyController : constructor", true);
 }
 
 FlyController::~FlyController()
@@ -20,13 +19,13 @@ void FlyController::setup()
 {
     delay(2000); // For start
     Serial.begin(CODECRAFT_SERIAL_BAUDRATE);
-    FlyController::serialPrintln("Quadcopter main program : setup");
+    FlyController::serialPrintln("Quadcopter main program : setup", true);
     FlyController::initialize();
 }
 
 void FlyController::initialize()
 {
-    FlyController::serialPrintln("Quadcopter main program : initialize");
+    FlyController::serialPrintln("Quadcopter main program : initialize", true);
     escController = new ESC_Controller(this);
 }
 

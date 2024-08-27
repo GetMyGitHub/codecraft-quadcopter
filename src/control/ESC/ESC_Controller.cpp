@@ -6,21 +6,21 @@
 #include <control/FlyController.hpp>
 
 ESC_Controller::ESC_Controller(){
-    Serial.println("ESC_Controller : constructor");
+    flyController->serialPrintln("ESC_Controller : constructor", true);
     ESC_Controller::attachMotors();
     delay(1000); // Wait attaching motors.
     ESC_Controller::initiateMotors();
 }
 
 ESC_Controller::ESC_Controller(FlyController* flyController){
-    Serial.println("ESC_Controller : constructor");
+    flyController->serialPrintln("ESC_Controller : constructor", true);
     ESC_Controller::attachMotors();
     delay(1000); // Wait attaching motors.
     ESC_Controller::initiateMotors();
 }
 
 void ESC_Controller::attachMotors(){
-    Serial.println("ESC_Controller : attachMotors");
+    flyController->serialPrintln("ESC_Controller : attachMotors", true);
     esc_front_left.attach(CODECRAFT_ESC_PIN_FRONT_LEFT, CODECRAFT_ESC_MIN_PULSE, CODECRAFT_ESC_MAX_PULSE);
     esc_front_right.attach(CODECRAFT_ESC_PIN_FRONT_RIGHT, CODECRAFT_ESC_MIN_PULSE, CODECRAFT_ESC_MAX_PULSE);
     esc_back_left.attach(CODECRAFT_ESC_PIN_BACK_LEFT, CODECRAFT_ESC_MIN_PULSE, CODECRAFT_ESC_MAX_PULSE);
@@ -28,11 +28,15 @@ void ESC_Controller::attachMotors(){
 }
 
 void ESC_Controller::initiateMotors(){
-    Serial.println("ESC_Controller : initiateMotors");
+    flyController->serialPrintln("ESC_Controller : initiateMotors", true);
     esc_front_left.write(0);
+    esc_front_left_actual_pulse = 0;
     esc_front_right.write(0);
+    esc_front_right_actual_pulse = 0;
     esc_back_left.write(0);
+    esc_back_left_actual_pulse = 0;
     esc_back_right.write(0);
+    esc_back_right_actual_pulse = 0;
 }
 
 void ESC_Controller::setFrontLeftPulse(int pulseValue){
