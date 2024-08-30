@@ -6,14 +6,16 @@
 #include <control/FlyController.hpp>
 
 ESC_Controller::ESC_Controller(){
-    flyController->serialPrintln("ESC_Controller : constructor", true);
-    ESC_Controller::attachMotors();
-    delay(1000); // Wait attaching motors.
-    ESC_Controller::initiateMotors();
 }
 
-ESC_Controller::ESC_Controller(FlyController* flyController){
-    flyController->serialPrintln("ESC_Controller : constructor", true);
+// ESC_Controller::ESC_Controller(FlyController *pflycontroller){
+//     flyController = pflycontroller;
+// }
+
+
+void ESC_Controller::setup(){
+    // FlyController::serialPrintln("ESC_Controller : setup", true);
+    flyController->serialPrintln("ESC_Controller : setup", true);
     ESC_Controller::attachMotors();
     delay(1000); // Wait attaching motors.
     ESC_Controller::initiateMotors();

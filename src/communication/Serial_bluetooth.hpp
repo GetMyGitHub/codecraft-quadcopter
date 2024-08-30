@@ -4,18 +4,27 @@
 #include <Arduino.h>
 #include <string>
 
+using namespace std;
+
+class FlyController; // Déclaration anticipée de FlyController
+
 class Serial_bluetooth
 {
-protected:
-    virtual void initialize();
 
+// FlyController* flyController;
+
+protected:
 public:
     Serial_bluetooth();
+    // Serial_bluetooth(FlyController *flyController);
     virtual ~Serial_bluetooth() {};
+    void setup();
     virtual void read();
-    virtual void write(int value);
+    virtual String readString();
+    virtual void write(char value);
+    virtual void write(string value);    
     virtual int serialAvailable();
-    virtual void updateSerial();
+    virtual String updateSerial();
 };
 
 #endif

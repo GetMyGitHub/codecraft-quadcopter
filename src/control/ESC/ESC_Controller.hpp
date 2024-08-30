@@ -20,15 +20,16 @@ class ESC_Controller
     Servo esc_back_left;
     Servo esc_back_right;
 
-    FlyController* flyController; // Pointeur vers FlyController
+    FlyController *flyController;
 
 protected:
     void attachMotors();
     void initiateMotors();
 public:
     ESC_Controller();
-    ESC_Controller(FlyController* flyController);
+    ESC_Controller(FlyController *flyController);
     virtual ~ESC_Controller() {};
+    void setup();
     int getFrontLeftPulse(int pulseValue);
     int getFrontRightPulse(int pulseValue);
     int getBackLeftPulse(int pulseValue);

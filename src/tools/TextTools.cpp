@@ -22,15 +22,16 @@ vector<string> TextTools::split(const string str, const string delim){
     return tokens;
 }
 
-string TextTools::removeSpacesAndNewlines(const string str)
+void TextTools::removeSpacesAndNewlines(String &str)
 {
-  string result;
-  for (char c : str) {
-    if (c != ' ' && c != '\n' && c != '\r') {
-      result += c;
-    }
-  }
-  return result;
+  str.replace("\n", "");
+  str.replace("\r", "");
+  // string result;
+  // for (char c : str) {
+  //   if (c != ' ' && c != '\n' && c != '\r') {
+  //     result += c;
+  //   }
+  // }
 }
 
 void TextTools::removeElementFromVector(std::vector<std::string>& vector, const std::string& target) {

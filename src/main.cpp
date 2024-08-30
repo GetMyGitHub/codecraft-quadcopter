@@ -1,17 +1,17 @@
 #include <Arduino.h>
 
-#include <configs/Configs.hpp>
-#include <communication/Wifi_client.hpp>
-#include <communication/Serial_bluetooth.hpp>
-#include <communication/Interpretor.hpp>
-#include <control/ESC/ESC_Controller.hpp>
+// #include <configs/Configs.hpp>
+// #include <communication/Wifi_client.hpp>
+// #include <communication/Serial_bluetooth.hpp>
+// #include <communication/Interpretor.hpp>
+// #include <control/ESC/ESC_Controller.hpp>
 #include <control/FlyController.hpp>
 
 // Configs configs;
 // Wifi_client* wifiClient;
 
-// Serial_bluetooth* serialBluetooth;
-// // ESC_Controller* escController;
+// Serial_bluetooth serialBluetooth;
+// ESC_Controller escController;
 // Interpretor* interpretor;
 FlyController flyController;
 
@@ -20,7 +20,7 @@ uint16_t GLOBAL_MIN_DELAY_MS = 10;
 using namespace std;
 
 void initialize(){
-  delay(2000); // For start
+  // delay(2000); // For start
   // Wifi_client wifiClient;
   // if(wifiClient.connect()) {
     

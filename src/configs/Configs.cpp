@@ -16,6 +16,7 @@ extern const int CODECRAFT_ESC_PIN_BACK_LEFT = 25;
 extern const int CODECRAFT_ESC_PIN_BACK_RIGHT = 26;
 // COMMUNICATION
 extern const std::string CODECRAFT_COMMAND_DELIMITER = "_";
+extern const std::string CODECRAFT_COMMAND_PREFIX = "CMD";
 // DEBUG
 extern const boolean CODECRAFT_LOG_DEBUG = true;
 // SERIAL

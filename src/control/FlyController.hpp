@@ -4,12 +4,17 @@
 #include <Arduino.h>
 #include <string>
 #include <control/ESC/ESC_Controller.hpp>
+#include <communication/Serial_bluetooth.hpp>
+#include <communication/Interpretor.hpp>
 
 using namespace std;
 
 class FlyController
 {
-    ESC_Controller* escController;
+    ESC_Controller escController;
+    Serial_bluetooth serialBluetooth;
+    Interpretor interpretor;
+
 protected:    
     void initialize();
 public:
@@ -17,8 +22,8 @@ public:
     virtual ~FlyController();
     void setup();
     void loop();
-    void serialPrint(string value, boolean debug = false);
-    void serialPrintln(string value, boolean debug = false);
+    static void serialPrint(string value, boolean debug = false);
+    static void serialPrintln(string value, boolean debug = false);
 };
 
 #endif // FLYCONTROLLER_H
