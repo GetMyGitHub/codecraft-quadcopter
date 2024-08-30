@@ -8,9 +8,9 @@
 ESC_Controller::ESC_Controller(){
 }
 
-// ESC_Controller::ESC_Controller(FlyController *pflycontroller){
-//     flyController = pflycontroller;
-// }
+ESC_Controller::ESC_Controller(FlyController *pFlycontroller){
+    flyController = pFlycontroller;
+}
 
 
 void ESC_Controller::setup(){

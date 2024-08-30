@@ -6,7 +6,7 @@
 
 using namespace std;
 
-FlyController::FlyController()
+FlyController::FlyController() : escController(this), serialBluetooth(this), interpretor(this)
 {
 }
 

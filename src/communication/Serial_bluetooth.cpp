@@ -21,6 +21,11 @@ Serial_bluetooth::Serial_bluetooth()
 {
 }
 
+Serial_bluetooth::Serial_bluetooth(FlyController *pFlycontroller)
+{
+  flyController = pFlycontroller;
+}
+
 void Serial_bluetooth::setup()
 {
   FlyController::serialPrintln("Serial_bluetooth : setup", true);

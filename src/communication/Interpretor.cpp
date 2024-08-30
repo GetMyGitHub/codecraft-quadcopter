@@ -8,10 +8,11 @@
 
 using namespace std;
 
-
-
 Interpretor::Interpretor(){
-    if(CODECRAFT_LOG_DEBUG) Serial.println("Interpretor : constructor");    
+}
+
+Interpretor::Interpretor(FlyController *pFlyController){
+    flyController = pFlyController;
 }
 
 void Interpretor::serialCommand(String &stringCommandValue, FlyController *flyController){
