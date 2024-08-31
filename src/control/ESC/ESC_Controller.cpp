@@ -5,6 +5,11 @@
 #include <configs/Configs.hpp>
 #include <control/FlyController.hpp>
 
+#include <vector>
+#include <tools/TextTools.hpp>
+
+using namespace std;
+
 ESC_Controller::ESC_Controller(){
 }
 
@@ -14,11 +19,11 @@ ESC_Controller::ESC_Controller(FlyController *pFlycontroller){
 
 
 void ESC_Controller::setup(){
-    // FlyController::serialPrintln("ESC_Controller : setup", true);
     flyController->serialPrintln("ESC_Controller : setup", true);
     ESC_Controller::attachMotors();
     delay(1000); // Wait attaching motors.
     ESC_Controller::initiateMotors();
+    delay(1000); // Wait initiating motors.
 }
 
 void ESC_Controller::attachMotors(){
@@ -66,4 +71,13 @@ void ESC_Controller::setPulseAll(int pulseValue){
     ESC_Controller::setFrontRightPulse(pulseValue);
     ESC_Controller::setBackLeftPulse(pulseValue);
     ESC_Controller::setBackRightPulse(pulseValue);
+}
+
+void ESC_Controller::readCommandR(vector<string> command){
+    TextTools::removeElementFromVector(command, "R");
+    if(command[0] == "ALL") ESC_Controller::setPulseAll(stoi(command[1]));
+    if(command[0] == "FL") ESC_Controller::setFrontLeftPulse(stoi(command[1]));
+    if(command[0] == "FR") ESC_Controller::setFrontRightPulse(stoi(command[1]));
+    if(command[0] == "BL") ESC_Controller::setBackLeftPulse(stoi(command[1]));
+    if(command[0] == "BF") ESC_Controller::setBackRightPulse(stoi(command[1]));
 }

@@ -21,6 +21,8 @@ void FlyController::setup()
     FlyController::serialPrintln("FlyController : setup", true);
     escController.setup();    
     serialBluetooth.setup();    
+    delay(1000);
+    // escController.setPulseAll(1100);
 }
 
 void FlyController::loop(){
@@ -54,4 +56,13 @@ void FlyController::serialPrintln(string value, boolean debug)
         Serial.println(value.c_str());
         serialBluetooth.write((value + "\n").c_str());
     }
+}
+
+ESC_Controller FlyController::getEscController(){
+    return escController;
+}
+
+void FlyController::readRotorCommand(vector<string> command){
+    TextTools::removeElementFromVector(command, "R");
+    if(command[0] == "ALL") escController.setPulseAll(stoi(command[1]));
 }

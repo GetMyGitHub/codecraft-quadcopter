@@ -2,6 +2,9 @@
 #define ESC_CONTROLLER_HPP
 
 #include <ESP32Servo.h>
+#include <vector>
+
+using namespace std;
 
 class FlyController; // Déclaration anticipée de FlyController
 
@@ -41,6 +44,9 @@ public:
     void setBackRightPulse(int pulseValue);
 
     void setPulseAll(int pulseValue);
+
+    void readCommandR(vector<string> vector);
+
 };
 
 #endif

@@ -24,6 +24,8 @@ public:
     void loop();
     void serialPrint(string value, boolean debug = false);
     void serialPrintln(string value, boolean debug = false);
+    ESC_Controller getEscController();
+    void readRotorCommand(vector<string> command);
 };
 
 #endif // FLYCONTROLLER_H

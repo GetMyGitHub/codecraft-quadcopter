@@ -19,33 +19,19 @@ void Interpretor::serialCommand(String &stringCommandValue, FlyController *flyCo
 
     TextTools::removeSpacesAndNewlines(stringCommandValue);
     if(stringCommandValue.startsWith(CODECRAFT_COMMAND_PREFIX.c_str())){
-        vector<string> result = TextTools::split(stringCommandValue.c_str(), CODECRAFT_COMMAND_DELIMITER);
-         TextTools::removeElementFromVector(result, CODECRAFT_COMMAND_PREFIX);
+        vector<string> command = TextTools::split(stringCommandValue.c_str(), CODECRAFT_COMMAND_DELIMITER);
+         TextTools::removeElementFromVector(command, CODECRAFT_COMMAND_PREFIX);
          flyController->serialPrint("Interpretor : command is : ", true);         
-         for (const std::string str : result){
+         for (const std::string str : command){
             flyController->serialPrint(str.c_str(), true);
             flyController->serialPrint("\t", true);
          }
          flyController->serialPrintln("  : fin", true);
+        //  flyController->serialPrintln(to_string(command.size()), true);
+        //  flyController->serialPrintln(command[0], true);   
+         if(command[0] == "R") {
+            flyController->readRotorCommand(command);
+         }
     }
-
-    // if(CODECRAFT_LOG_DEBUG) Serial.println("Interpretor : serialCommand");
-    // TextTools::removeSpacesAndNewlines(stringCommandValue);    
-    // Serial.println(stringCommandValue);
-    // if(stringCommandValue.startsWith("CMD")){
-    //     if(CODECRAFT_LOG_DEBUG) Serial.print("Test : startWith");
-    // }
-
-    // if (stringCommandValue.rfind("CMD", 0) == 0) {
-    //     if(CODECRAFT_LOG_DEBUG) Serial.println("Interpretor : command detected");
-    //     // vector<string> result = TextTools::split(stringCommandValue, CODECRAFT_COMMAND_DELIMITER);
-    //     // TextTools::removeElementFromVector(result, "CMD");
-    //     if(CODECRAFT_LOG_DEBUG) Serial.print("Test cmd is : " );
-    //     // for (const std::string str : result){            
-    //     //     if(CODECRAFT_LOG_DEBUG) Serial.print(str.c_str());
-    //     //     if(CODECRAFT_LOG_DEBUG) Serial.print(" \t ");
-    //     // }
-    //     Serial.print("");
-    // }
 }
 
