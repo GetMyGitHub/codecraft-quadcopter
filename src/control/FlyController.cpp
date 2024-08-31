@@ -43,7 +43,7 @@ void FlyController::serialPrint(string value, boolean debug)
     if (!debug || (debug && CODECRAFT_LOG_DEBUG))
     {
         Serial.print(value.c_str());
-        // serialBluetooth.write(value.c_str());
+        serialBluetooth.write(value.c_str());
     }
 }
 
@@ -52,6 +52,6 @@ void FlyController::serialPrintln(string value, boolean debug)
     if (!debug || (debug && CODECRAFT_LOG_DEBUG))
     {
         Serial.println(value.c_str());
-        // serialBluetooth.write(value.c_str());
+        serialBluetooth.write((value + "\n").c_str());
     }
 }

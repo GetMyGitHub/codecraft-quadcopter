@@ -28,7 +28,7 @@ Serial_bluetooth::Serial_bluetooth(FlyController *pFlycontroller)
 
 void Serial_bluetooth::setup()
 {
-  FlyController::serialPrintln("Serial_bluetooth : setup", true);
+  flyController->serialPrintln("Serial_bluetooth : setup", true);
   SerialBT.begin(CODECRAFT_BLUETOOTH_DEVICE_NAME.c_str());
 }
 

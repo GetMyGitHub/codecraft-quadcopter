@@ -22,8 +22,8 @@ public:
     virtual ~FlyController();
     void setup();
     void loop();
-    static void serialPrint(string value, boolean debug = false);
-    static void serialPrintln(string value, boolean debug = false);
+    void serialPrint(string value, boolean debug = false);
+    void serialPrintln(string value, boolean debug = false);
 };
 
 #endif // FLYCONTROLLER_H

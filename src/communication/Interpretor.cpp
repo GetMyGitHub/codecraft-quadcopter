@@ -18,15 +18,15 @@ Interpretor::Interpretor(FlyController *pFlyController){
 void Interpretor::serialCommand(String &stringCommandValue, FlyController *flyController){
 
     TextTools::removeSpacesAndNewlines(stringCommandValue);
-    flyController->serialPrintln(stringCommandValue.c_str(), true);
     if(stringCommandValue.startsWith(CODECRAFT_COMMAND_PREFIX.c_str())){
         vector<string> result = TextTools::split(stringCommandValue.c_str(), CODECRAFT_COMMAND_DELIMITER);
          TextTools::removeElementFromVector(result, CODECRAFT_COMMAND_PREFIX);
          flyController->serialPrint("Interpretor : command is : ", true);         
          for (const std::string str : result){
             flyController->serialPrint(str.c_str(), true);
-            flyController->serialPrint(" \t ", true);
+            flyController->serialPrint("\t", true);
          }
+         flyController->serialPrintln("  : fin", true);
     }
 
     // if(CODECRAFT_LOG_DEBUG) Serial.println("Interpretor : serialCommand");
